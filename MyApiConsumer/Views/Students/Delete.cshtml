@@ -1,0 +1,17 @@
+﻿@model MyApiConsumer.Models.Student
+
+<h2>Delete Student</h2>
+
+<h3>Are you sure you want to delete this student?</h3>
+<div>
+    <h4>@Model.FirstName @Model.LastName</h4>
+    <p>Major: @Model.Major</p>
+</div>
+
+
+<form asp-action="DeleteConfirmed" method="post">
+    <input type="hidden" name="id" value="@Model.Id" />
+    <p>Are you sure you want to delete this student?</p>
+    <button type="submit">Confirm Delete</button>
+    <a asp-action="Index">Cancel</a>
+</form>

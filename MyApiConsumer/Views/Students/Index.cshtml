@@ -1,0 +1,38 @@
+﻿@model IEnumerable<MyApiConsumer.Models.Student>
+@{
+    ViewData["Title"] = "Students Index";
+}
+
+<h2>Students</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New Student</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Major</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+            <tr>
+                <td>@student.Id</td>
+                <td>@student.FirstName</td>
+                <td>@student.LastName</td>
+                <td>@student.Major</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@student.Id" class="btn btn-info">Details</a>
+                    <a asp-action="Edit" asp-route-id="@student.Id" class="btn btn-warning">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@student.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
